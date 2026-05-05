@@ -151,7 +151,7 @@
 
   // ---- Private Market Signal module ----
   const pmsPosEl = $("#pms-positioning");
-  if (pmsPosEl) pmsPosEl.textContent = BRAND.positioning;
+  if (pmsPosEl) pmsPosEl.textContent = BRAND.privateMarketIntro;
 
   // Render 4 signal facts from SIGNAL_SUMMARY
   const pmsFacts = $("#pms-facts");
