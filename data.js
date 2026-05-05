@@ -182,13 +182,6 @@ const TOP_HIERARCHY = [
     summary: "Original land purchase June 12, 1987 ($485K); 38-year owner-built hold — the strongest equity signal this cycle. Owner-of-record + mailing confirmation required before this property can be labeled outreach-ready.",
     accent: "pull_required",
   },
-  {
-    rank: "05",
-    label: "Removed / Corrected Lead",
-    propKey: "3409",
-    summary: "Public-record pass found a March 28, 2023 sale. Current owner held only ~3 years — not a long-held target. Filtered out this cycle.",
-    accent: "removed",
-  },
 ];
 
 const KPIS = [
@@ -197,8 +190,7 @@ const KPIS = [
   { value: "5", label: "Active listings reviewed deeper" },
   { value: "2", label: "Off-market owner targets remaining" },
   { value: "1", label: "Top target" },
-  { value: "1", label: "Listed watchlist candidate" },
-  { value: "2", label: "Removed after public-record pass" },
+  { value: "2", label: "Listed watchlist candidates" },
 ];
 
 const EXECUTIVE_SIGNAL = {
@@ -386,30 +378,6 @@ const PIPELINE = [
     systemAction:
       "Monitor price trigger around $2.9M. Add to next-cycle ADU feasibility scan.",
   },
-  {
-    rank: "—",
-    propKey: "4157",
-    statusLabel: "Removed",
-    statusType: "removed",
-    type: "Filtered out this cycle",
-    keySignal:
-      "Public-source pass (Zillow + multiple aggregators) indicates a likely Oct. 15, 2022 sale. Current owner profile no longer supports long-held outreach status. The earlier-referenced March 2, 2004 sale appears to be prior-owner history.",
-    profile: "1988 · 3,604 sq ft · 5 bd / 3.5 ba · 0.188 ac",
-    systemAction:
-      "No action unless owner profile changes in a future cycle. Official county confirmation queued.",
-  },
-  {
-    rank: "—",
-    propKey: "3409",
-    statusLabel: "Removed",
-    statusType: "removed",
-    type: "Filtered out this cycle",
-    keySignal:
-      "Public-record pass found March 28, 2023 sale for $2.11M. Current owner held only ~3 years (the 2002 sale referenced earlier was the prior-prior owner). Not a long-held outreach target.",
-    profile: "1991 · 3,278 sq ft · 4 bd / 3 ba · Shadow Creek neighborhood",
-    systemAction:
-      "No action unless owner profile changes in a future cycle.",
-  },
 ];
 
 const PUBLIC_RECORD = [
@@ -437,17 +405,6 @@ const PUBLIC_RECORD = [
       "Owner mailing not exposed by the CCC online tax bill — bill explicitly states \"ADDRESS INFORMATION NOT AVAILABLE ONLINE.\" Confirmed mailing requires Assessor's office, formal Records Request, or paid skip-trace. Town of Danville CSS portal pull previously returned 0 records; CCC permit detail still pending human-access step.",
   },
   {
-    propKey: "4157",
-    confirmed: [
-      "Year built 1988, 3,604 sq ft, 5 bd / 3.5 ba, 0.188 ac (confirmed)",
-      "Public-source pass (Zillow + multiple aggregators) indicates a likely Oct. 15, 2022 sale; current owner profile no longer supports long-held outreach status",
-      "The earlier-referenced March 2, 2004 sale ($1.02M) appears to be prior-owner history",
-      "4 construction permits on record per third-party aggregator (specific types not visible in public snippets)",
-    ],
-    portal:
-      "Reclassified as removed lead this cycle. Official county confirmation queued; CCC permit detail still pending human-access step if profile changes in a future cycle.",
-  },
-  {
     propKey: "5505",
     confirmed: [
       "Year built 2007, 8,039 sq ft, 0.66 ac (confirmed)",
@@ -458,20 +415,10 @@ const PUBLIC_RECORD = [
     portal:
       "Permit detail surfaced via third-party aggregator. CCC ePermits portal would confirm specifics if needed.",
   },
-  {
-    propKey: "3409",
-    confirmed: [
-      "Year built 1991, 3,278 sq ft, 4 bd / 3 ba",
-      "Listed August 2022 at $2,199,800",
-      "Sold March 28, 2023 for $2,110,000",
-      "Current owner held only ~3 years",
-    ],
-    portal: "Removed from long-held outreach list this cycle.",
-  },
 ];
 
 const PUBLIC_RECORD_TAKEAWAY =
-  "Public-record pass changed the rankings. It removed two bad leads (3409 and 4157, both recent sales not long-held targets), kept one off-market target, and reframed one listed property as a pricing-discount watchlist item rather than a renovation candidate.";
+  "Public-record pass changed the rankings. It confirmed one off-market owner target, reframed one listed property as a pricing-discount watchlist item rather than a renovation candidate, and filtered out two recent sales that did not meet the long-held owner criteria — those are not carried forward.";
 
 const WATCHLIST = [
   {
@@ -617,21 +564,21 @@ const CHART_INSIGHTS = {
   holdTime: "The longer the hold, the higher the implied equity. 4319 (38 yr) and 3251 (26 yr) define the upper band this cycle.",
   pricecuts: "5505 has cut $2.14M off list (~34%). The system re-runs the deal at ~$3.5M or another 10% cut.",
   arv: "Subject sits cleanly between two same-street renovated comps by size. ARV lane is real, not extrapolated.",
-  pipeline: "One outreach-ready target, one with owner confirmed but mailing pull required, one listed watchlist, two filtered out.",
+  pipeline: "One outreach-ready target, one with owner confirmed but mailing pull required, and two listed watchlist candidates.",
 };
 
 // Chart datasets
 const CHART_DATA = {
   ranking: {
-    labels: ["3251 Blackhawk Meadow", "4319 Quail Run Ln", "5505 Blackhawk Dr", "4157 Quail Run Dr", "3409 Blackhawk Meadow"],
-    scores: [95, 78, 45, 0, 0],
-    colors: ["#243828", "#3F5C46", "#C9A05A", "#9F948A", "#9F948A"],
-    statusLabels: ["Top Target", "Owner Confirmed · Mailing Pull Required", "Listed Watchlist", "Removed", "Removed"],
+    labels: ["3251 Blackhawk Meadow", "4319 Quail Run Ln", "5505 Blackhawk Dr"],
+    scores: [95, 78, 45],
+    colors: ["#243828", "#3F5C46", "#C9A05A"],
+    statusLabels: ["Top Target", "Owner Confirmed · Mailing Pull Required", "Listed Watchlist"],
   },
   holdTime: {
-    labels: ["4319 Quail Run Ln", "3251 Blackhawk Meadow Dr", "5505 Blackhawk Dr", "4157 Quail Run Dr", "3409 Blackhawk Meadow Dr"],
-    years: [38, 26, 16, 3, 3],
-    colors: ["#3F5C46", "#243828", "#C9A05A", "#9F948A", "#9F948A"],
+    labels: ["4319 Quail Run Ln", "3251 Blackhawk Meadow Dr", "5505 Blackhawk Dr"],
+    years: [38, 26, 16],
+    colors: ["#3F5C46", "#243828", "#C9A05A"],
   },
   priceCuts5505: {
     points: [
@@ -646,8 +593,8 @@ const CHART_DATA = {
     sqFt: [3281, 3473, 5383],
   },
   pipelineStatus: {
-    labels: ["Top Target", "Owner Confirmed · Mailing Pull Required", "Listed Watchlist", "Removed"],
-    counts: [1, 1, 1, 2],
-    colors: ["#243828", "#C9A05A", "#7A8E78", "#9F948A"],
+    labels: ["Top Target", "Owner Confirmed · Mailing Pull Required", "Listed Watchlist"],
+    counts: [1, 1, 2],
+    colors: ["#243828", "#C9A05A", "#7A8E78"],
   },
 };
