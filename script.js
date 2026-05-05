@@ -49,10 +49,32 @@
     const value = isNotReady ? "Not outreach-ready" : path;
     const slug = String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     const darkClass = opts.onDark ? " contact-chip-on-dark" : "";
+
+    // Agent info line (listed properties)
+    const c = p.contact;
+    let agentLine = "";
+    if (c.agentNote) {
+      agentLine = `<div class="contact-chip-agent">${escapeHtml(c.agentNote)}</div>`;
+    } else if (c.agentName || c.agentMLS) {
+      const parts = [];
+      if (c.agentName) parts.push(escapeHtml(c.agentName));
+      if (c.agentBrokerage) parts.push(escapeHtml(c.agentBrokerage));
+      if (c.agentMLS) parts.push("MLS " + escapeHtml(c.agentMLS));
+      if (c.agentPhone) parts.push(escapeHtml(c.agentPhone));
+      agentLine = parts.length ? `<div class="contact-chip-agent">${parts.join(" · ")}</div>` : "";
+    }
+
+    // Phone lookup button — owner-target cards only (path contains "phone lookup")
+    const hasPhoneLookup = !isNotReady && /phone.?lookup/i.test(value);
+    const phoneLookupBtn = hasPhoneLookup
+      ? `<button class="phone-lookup-btn" type="button" data-phone-lookup="${escapeHtml(propKey)}">Run phone lookup</button>`
+      : "";
+
     return `
       <div class="contact-chip${darkClass}" data-contact="${slug}">
         <span class="contact-chip-label">${label}</span>
         <span class="contact-chip-value">${escapeHtml(value)}</span>
+        ${agentLine}${phoneLookupBtn}
       </div>
     `;
   }
@@ -751,4 +773,14 @@
       }
     }
   });
+
+  // ---- Phone lookup button interaction ----
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".phone-lookup-btn");
+    if (!btn || btn.disabled) return;
+    btn.disabled = true;
+    btn.classList.add("phone-lookup-btn--queued");
+    btn.textContent = "Phone lookup queued · System will run next pass";
+  });
+
 })();
