@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acquisition OS · Private Market Radar · Danville / Blackhawk Deal Signal</title>
+  <meta name="description" content="Acquisition OS — Private Market Radar. Danville / Blackhawk Deal Signal. Off-market signals, long-held owner targets, likely equity, pricing pressure." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+</head>
+<body>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scroll-progress-bar" id="scroll-progress-bar" role="progressbar" aria-hidden="true"></div>
+
+<!-- ============ STICKY MINI NAV ============ -->
+<nav class="sticky-nav" id="sticky-nav" aria-label="Page navigation">
+  <div class="sticky-nav-inner">
+    <div class="sticky-nav-brand">
+      <span class="sticky-nav-product">Acquisition OS</span>
+      <span class="sticky-nav-divider"></span>
+      <span class="sticky-nav-scan">Danville / Blackhawk Deal Signal</span>
+    </div>
+    <div class="sticky-nav-links">
+      <a class="sticky-nav-link" href="#private-market-signal">Signal</a>
+      <a class="sticky-nav-link" href="#dominant-winner">Winner</a>
+      <a class="sticky-nav-link" href="#pipeline">Pipeline</a>
+      <a class="sticky-nav-link" href="#charts">Charts</a>
+      <a class="sticky-nav-link" href="#watchlist">Watchlist</a>
+      <a class="sticky-nav-link" href="#action-queue-section">Actions</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-image" role="img" aria-label="Golden-hour view of a premium estate clubhouse and signature golf hole"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-top">
+      <div class="brand-mark">
+        <span class="brand-product">Acquisition OS</span>
+        <span class="brand-divider"></span>
+        <span class="brand-module">Private Market Radar</span>
+      </div>
+    </div>
+    <div class="hero-middle">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        <span>Private Market Radar · Active Scan</span>
+      </div>
+      <h1 class="hero-title">Danville / Blackhawk<br/>Deal Signal</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-subtitle">May 2026 · Pilot Scan</p>
+    </div>
+    <div class="hero-bottom">
+      <p class="hero-positioning" id="hero-positioning"></p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PRIVATE MARKET SIGNAL (merged module) ============ -->
+<section class="section section-pms" id="private-market-signal">
+  <div class="pms-bg-texture" aria-hidden="true"></div>
+  <div class="container">
+
+    <!-- Bold headline + positioning -->
+    <div class="pms-header">
+      <div class="pms-badge">Private-market signal · before MLS</div>
+      <h2 class="pms-headline">The strongest signal this cycle is not listed inventory — it is a private-market owner target.</h2>
+      <p class="pms-positioning" id="pms-positioning"></p>
+    </div>
+
+    <!-- 4 compact signal facts -->
+    <div class="pms-facts" id="pms-facts"></div>
+
+  </div>
+</section>
+
+<!-- ============ MANAGED WORKFLOW ============ -->
+<section class="section section-workflow" id="managed-workflow" aria-label="How Acquisition OS works">
+  <div class="container">
+    <div class="workflow-header reveal">
+      <div class="workflow-eyebrow">Managed Acquisition Workflow</div>
+      <h2 class="workflow-headline" id="workflow-headline"></h2>
+      <p class="workflow-subline" id="workflow-subline"></p>
+    </div>
+    <div class="workflow-tiles" id="workflow-tiles"></div>
+  </div>
+</section>
+
+<!-- ============ KPI STRIP ============ -->
+<section class="kpi-strip" id="kpi-strip" aria-label="Scan-cycle key numbers">
+  <div class="container">
+    <div class="kpi-grid" id="kpi-grid"></div>
+  </div>
+</section>
+
+<!-- ============ DOMINANT WINNER ============ -->
+<section class="section section-cream section-tight" id="dominant-winner">
+  <div class="container">
+    <div class="eyebrow">Best Signal Hierarchy</div>
+    <div class="winner-card-wrap">
+      <span class="winner-floating-badge">Multi-Category Winner</span>
+      <div class="winner-card" id="winner-card"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECONDARY WINNERS ============ -->
+<section class="section section-cream section-tight" id="secondary-winners">
+  <div class="container">
+    <div class="eyebrow">Active Signal Categories</div>
+    <div class="secondary-grid" id="secondary-grid"></div>
+  </div>
+</section>
+
+<!-- ============ RANKED PIPELINE ============ -->
+<section class="section section-light" id="pipeline">
+  <div class="container">
+    <div class="eyebrow">Ranked Pipeline</div>
+    <h2 class="section-title">Pipeline</h2>
+    <p class="section-sub">Current acquisition signals ranked by strength, readiness, and system action.</p>
+    <div class="pipeline-grid" id="pipeline-grid"></div>
+  </div>
+</section>
+
+<!-- ============ SIGNAL VISUALIZATIONS ============ -->
+<section class="section section-cream" id="charts">
+  <div class="container">
+    <div class="eyebrow">Signal Visualizations</div>
+    <h2 class="section-title">What the data shows at a glance</h2>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-eyebrow">Module · Ranking</div>
+        <h3 class="chart-title">Opportunity ranking</h3>
+        <p class="chart-sub">Composite acquisition score per property, this cycle.</p>
+        <div class="chart-canvas-wrap"><canvas id="chart-ranking"></canvas></div>
+        <div class="chart-insight" data-insight="ranking"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-eyebrow">Module · Equity Signal</div>
+        <h3 class="chart-title">Hold-time comparison</h3>
+        <p class="chart-sub">Years of same-owner ownership.</p>
+        <div class="chart-canvas-wrap"><canvas id="chart-holdtime"></canvas></div>
+        <div class="chart-insight" data-insight="holdTime"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-eyebrow">Module · Pricing Pressure</div>
+        <h3 class="chart-title">5505 Blackhawk Dr — price-cut trajectory</h3>
+        <p class="chart-sub">Original list, current list, and re-review trigger.</p>
+        <div class="chart-canvas-wrap"><canvas id="chart-pricecuts"></canvas></div>
+        <div class="chart-insight" data-insight="pricecuts"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-eyebrow">Module · ARV Comp Lane</div>
+        <h3 class="chart-title">3251 Blackhawk Meadow — ARV comp range</h3>
+        <p class="chart-sub">Same-street renovated comps; subject sits between by size. Working ARV lane only.</p>
+        <div class="chart-canvas-wrap"><canvas id="chart-arv"></canvas></div>
+        <div class="chart-insight" data-insight="arv"></div>
+      </div>
+      <div class="chart-card chart-card-wide">
+        <div class="chart-eyebrow">Module · System Pipeline</div>
+        <h3 class="chart-title">Pipeline status</h3>
+        <p class="chart-sub">How the system is currently classifying each lead.</p>
+        <div class="chart-canvas-wrap"><canvas id="chart-pipeline"></canvas></div>
+        <div class="chart-insight" data-insight="pipeline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLIC RECORD INTELLIGENCE ============ -->
+<section class="section section-light" id="public-record">
+  <div class="container">
+    <div class="eyebrow">Public Record Intelligence</div>
+    <h2 class="section-title">What the system confirmed and what it attempted</h2>
+    <p class="public-record-takeaway" id="public-record-takeaway"></p>
+    <div class="pr-grid" id="pr-grid"></div>
+  </div>
+</section>
+
+<!-- ============ WATCHLIST TRIGGERS ============ -->
+<section class="section section-green" id="watchlist">
+  <div class="container">
+    <div class="eyebrow eyebrow-on-dark">Watchlist Triggers</div>
+    <h2 class="section-title section-title-on-dark">System Watchlist</h2>
+    <p class="section-sub section-sub-on-dark">No immediate action. The tool re-runs the numbers automatically if a trigger is hit.</p>
+    <div class="watchlist-grid" id="watchlist-grid"></div>
+  </div>
+</section>
+
+<!-- ============ SYSTEM ACTION QUEUE ============ -->
+<section class="section section-cream" id="action-queue-section">
+  <div class="container">
+    <div class="eyebrow">System Action Queue</div>
+    <h2 class="section-title">What the system is doing next</h2>
+    <p class="section-sub">All actions are owned by the system or the agent. The only Jeremy-side step is the approval gate on the lead outreach letter.</p>
+    <div class="action-queue" id="action-queue"></div>
+  </div>
+</section>
+
+<!-- ============ WHY THIS MATTERS ============ -->
+<section class="section section-light" id="why">
+  <div class="container">
+    <div class="eyebrow">Why This Matters</div>
+    <h2 class="section-title">The agent finds the listings. Acquisition OS finds the rest.</h2>
+    <ul class="why-list" id="why-list"></ul>
+    <blockquote class="why-quote" id="why-quote"></blockquote>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <span class="brand-product brand-product-footer">Acquisition OS</span>
+      <span class="brand-module brand-module-footer">Private Market Radar</span>
+    </div>
+    <div class="footer-meta">
+      <span>Danville / Blackhawk Deal Signal</span>
+      <span>·</span>
+      <span>May 2026 Pilot Scan</span>
+      <span>·</span>
+      <span>Acquisition Research Brief</span>
+    </div>
+    <div class="footer-disclaimer">
+      Acquisition research, not final recommendations. No legal, zoning, financing, owner-finance, or HOA conclusions are made here.
+    </div>
+  </div>
+</footer>
+
+<!-- ============ DRAFT LETTER DRAWER ============ -->
+<div class="drawer" id="letter-drawer" aria-hidden="true" role="dialog" aria-labelledby="letter-drawer-title">
+  <div class="drawer-backdrop" data-close-drawer></div>
+  <div class="drawer-panel" role="document">
+    <div class="drawer-header">
+      <div class="eyebrow">Draft outreach letter · 3251 Blackhawk Meadow Dr</div>
+      <h3 class="drawer-title" id="letter-drawer-title"></h3>
+      <div class="drawer-status-chip">Held for approval</div>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-letter" id="letter-drawer-body"></div>
+    </div>
+    <div class="drawer-footer" id="letter-drawer-note"></div>
+    <button class="drawer-close" data-close-drawer aria-label="Close letter drawer">×</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

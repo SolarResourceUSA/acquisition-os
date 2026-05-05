@@ -1,0 +1,13 @@
+# Dependencies (accidentally installed during local QA — not needed for the site)
+node_modules/
+package.json
+package-lock.json
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# iCloud placeholders
+*.icloud
