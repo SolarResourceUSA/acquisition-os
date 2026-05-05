@@ -508,6 +508,9 @@
     const targets = [
       ".pms-header",
       ".pms-fact",
+      ".workflow-header",
+      ".workflow-tile",
+      ".workflow-callout",
       ".winner-card-wrap",
       ".sec-card",
       ".pipe-card",
