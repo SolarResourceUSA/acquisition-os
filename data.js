@@ -10,7 +10,7 @@ const BRAND = {
   positioning:
     "Acquisition OS scans for private-market acquisition signals — long-held owners, likely equity, pricing pressure, and off-market opportunities — then ranks them against your exit strategy before they ever hit the MLS.",
   privateMarketIntro:
-    "Listed homes are only one side of the market. Acquisition OS surfaces the private-market layer — owners, hold time, equity clues, permit signals, price pressure, and watchlist triggers that usually do not show up in a standard MLS search.",
+    "Listed homes are only one side of the market. Acquisition OS surfaces the private-market layer — owners, hold time, equity clues, permit signals, price pressure, and watchlist triggers that usually do not show up in a standard MLS search. That private-market visibility is one of the strongest advantages Acquisition OS brings to every scan.",
   agentSplit:
     "The agent handles the listed inventory. Acquisition OS tracks the hidden signal layer.",
 };
