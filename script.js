@@ -228,17 +228,23 @@
           </div>
         </div>
         <div class="winner-right">
-          <div class="winner-section">
-            <div class="winner-section-label">System Readiness</div>
-            <ul class="readiness-list">
-              ${w.systemReadiness.map(r => `<li>${escapeHtml(r)}</li>`).join("")}
-            </ul>
-          </div>
-          <div class="winner-section">
-            <div class="winner-section-label">What still controls the deal</div>
-            <ul class="controls-list">
-              ${w.whatControlsTheDeal.map(c => `<li>${escapeHtml(c)}</li>`).join("")}
-            </ul>
+          <button class="winner-secondary-toggle" aria-expanded="false" type="button">
+            <span class="winner-secondary-label">System details</span>
+            <span class="winner-secondary-icon" aria-hidden="true">↓</span>
+          </button>
+          <div class="winner-secondary-details" hidden>
+            <div class="winner-section">
+              <div class="winner-section-label">System Readiness</div>
+              <ul class="readiness-list">
+                ${w.systemReadiness.map(r => `<li>${escapeHtml(r)}</li>`).join("")}
+              </ul>
+            </div>
+            <div class="winner-section">
+              <div class="winner-section-label">What still controls the deal</div>
+              <ul class="controls-list">
+                ${w.whatControlsTheDeal.map(c => `<li>${escapeHtml(c)}</li>`).join("")}
+              </ul>
+            </div>
           </div>
           <div class="approval-gate-line">
             <span class="approval-gate-dot" aria-hidden="true"></span>
@@ -254,6 +260,25 @@
       </div>
     `;
   }
+
+  // Wire winner secondary toggle
+  (function() {
+    const toggleBtn = winnerEl ? winnerEl.querySelector(".winner-secondary-toggle") : null;
+    const secDetails = winnerEl ? winnerEl.querySelector(".winner-secondary-details") : null;
+    if (toggleBtn && secDetails) {
+      toggleBtn.addEventListener("click", () => {
+        const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+        toggleBtn.setAttribute("aria-expanded", String(!expanded));
+        toggleBtn.querySelector(".winner-secondary-label").textContent = !expanded ? "Hide details" : "System details";
+        toggleBtn.querySelector(".winner-secondary-icon").textContent = !expanded ? "↑" : "↓";
+        if (!expanded) {
+          secDetails.removeAttribute("hidden");
+        } else {
+          secDetails.setAttribute("hidden", "");
+        }
+      });
+    }
+  })();
 
   // ---- Secondary unique-winner cards ----
   const secGrid = $("#secondary-grid");
@@ -296,22 +321,53 @@
     const el = document.createElement("div");
     el.className = "pipe-card";
     el.dataset.status = p.statusType;
-    el.innerHTML = `
-      <div class="pipe-rank">Rank ${p.rank}</div>
-      <h3 class="pipe-address">${escapeHtml(prop.street)}</h3>
-      <div class="addr-city" style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">${escapeHtml(prop.city)}</div>
-      <div style="margin-bottom:12px;">
-        <a class="map-btn map-btn-soft" href="${mapUrl(prop.full)}" target="_blank" rel="noopener noreferrer" aria-label="View ${prop.street} on Google Maps">View on Map</a>
+
+    const summaryHtml = `
+      <div class="pipe-card-summary">
+        <div class="pipe-summary-top">
+          <span class="pipe-rank">Rank ${p.rank}</span>
+          <span class="pipe-status" data-status="${p.statusType}">${escapeHtml(p.statusLabel)}</span>
+        </div>
+        <h3 class="pipe-address">${escapeHtml(prop.street)}</h3>
+        <div class="pipe-city">${escapeHtml(prop.city)}</div>
+        <div class="pipe-card-map-row">
+          <a class="map-btn map-btn-soft" href="${mapUrl(prop.full)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(prop.street)} on Google Maps">View on Map</a>
+        </div>
+        ${signalMeter(p.propKey, { strength: strengthKey })}
+        <div class="pipe-key-signal-brief">${escapeHtml(p.keySignal)}</div>
+        <div class="pipe-system-action-brief">${escapeHtml(p.systemAction)}</div>
       </div>
-      <span class="pipe-status" data-status="${p.statusType}">${p.statusLabel}</span>
-      <div class="pipe-row"><span class="pipe-key">Type</span><span class="pipe-val">${p.type}</span></div>
-      <div class="pipe-row"><span class="pipe-key">Profile</span><span class="pipe-val">${p.profile}</span></div>
-      <div class="pipe-row"><span class="pipe-key">Key signal</span><span class="pipe-val">${p.keySignal}</span></div>
-      <div class="pipe-row"><span class="pipe-key">System action</span><span class="pipe-val">${p.systemAction}</span></div>
-      ${ownershipBlock(p.propKey)}
-      ${contactChip(p.propKey)}
-      ${signalMeter(p.propKey, { strength: strengthKey })}
     `;
+
+    const detailsHtml = `
+      <div class="pipe-card-details" hidden>
+        <div class="pipe-row"><span class="pipe-key">Type</span><span class="pipe-val">${escapeHtml(p.type)}</span></div>
+        <div class="pipe-row"><span class="pipe-key">Profile</span><span class="pipe-val">${escapeHtml(p.profile)}</span></div>
+        ${ownershipBlock(p.propKey)}
+        ${contactChip(p.propKey)}
+      </div>
+      <button class="pipe-expand-btn" aria-expanded="false" type="button">
+        <span class="pipe-expand-label">View details</span>
+        <span class="pipe-expand-icon" aria-hidden="true">↓</span>
+      </button>
+    `;
+
+    el.innerHTML = summaryHtml + detailsHtml;
+
+    const btn = el.querySelector(".pipe-expand-btn");
+    const details = el.querySelector(".pipe-card-details");
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      btn.querySelector(".pipe-expand-label").textContent = !expanded ? "Hide details" : "View details";
+      btn.querySelector(".pipe-expand-icon").textContent = !expanded ? "↑" : "↓";
+      if (!expanded) {
+        details.removeAttribute("hidden");
+      } else {
+        details.setAttribute("hidden", "");
+      }
+    });
+
     pipeGrid.appendChild(el);
   });
 
