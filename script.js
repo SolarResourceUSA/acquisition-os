@@ -228,7 +228,7 @@
           <div class="winner-city">${escapeHtml(wp.city)}</div>
           <div class="winner-actions">
             <a class="map-btn map-btn-soft" href="${mapUrl(wp.full)}" target="_blank" rel="noopener noreferrer" aria-label="View ${wp.street} on Google Maps">View on Map</a>
-            <button class="map-btn" data-open-drawer="letter-drawer" type="button">View draft letter</button>
+            <button class="map-btn" data-open-drawer="letter-drawer" type="button">View draft email</button>
           </div>
           <p class="winner-oneline">${escapeHtml(w.oneLine)}</p>
           <div class="winner-badges">
@@ -272,11 +272,11 @@
             <span class="approval-gate-dot" aria-hidden="true"></span>
             <span class="approval-gate-text">
               <strong>Approval gate</strong>
-              Draft owner-introduction letter prepared. Nothing is sent without Jeremy's approval.
+              Draft owner-introduction email prepared. Nothing is sent without Jeremy's approval.
             </span>
           </div>
           <div class="winner-cta-row">
-            <button class="tt-cta" data-open-drawer="letter-drawer" type="button">View draft letter</button>
+            <button class="tt-cta" data-open-drawer="letter-drawer" type="button">View draft email</button>
           </div>
         </div>
       </div>
