@@ -67,7 +67,7 @@
     // Phone lookup button — owner-target cards only (path contains "phone lookup")
     const hasPhoneLookup = !isNotReady && /phone.?lookup/i.test(value);
     const phoneLookupBtn = hasPhoneLookup
-      ? `<button class="phone-lookup-btn" type="button" data-phone-lookup="${escapeHtml(propKey)}">Run phone lookup</button>`
+      ? `<button class="phone-lookup-btn" type="button" data-phone-lookup="${escapeHtml(propKey)}">Phone lookup</button>`
       : "";
 
     return `
