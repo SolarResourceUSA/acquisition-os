@@ -3345,3 +3345,81 @@ html { scroll-padding-top: 64px; }
   .footer-grid { flex-direction: column; gap: 16px; align-items: flex-start; }
   .footer-meta { flex-wrap: wrap; }
 }
+
+
+/* ============================================================
+   CONTRAST FIX — Dark green sections (global pass)
+
+   Root cause: .approval-gate-text and .approval-gate-text strong
+   both hard-code explicit dark colors (--charcoal, --gold-deep)
+   that defeat .winner-right's inherited white.
+
+   Fix strategy: targeted high-specificity overrides on every
+   dark green container. No redesign — colors only.
+   ============================================================ */
+
+/* --- Winner-right panel (dark green) --- */
+.winner-right .approval-gate-line {
+  background: rgba(201, 160, 90, 0.12);
+  border-color: rgba(201, 160, 90, 0.35);
+  border-left-color: var(--gold);
+}
+.winner-right .approval-gate-text {
+  color: rgba(244, 234, 210, 0.90); /* cream/light tan — readable on dark green */
+}
+.winner-right .approval-gate-text strong {
+  color: var(--gold);               /* gold label, not dark brown */
+}
+
+/* Belt-and-suspenders: any other text element inside winner-right
+   that might accidentally inherit a dark color from a shared rule */
+.winner-right p,
+.winner-right span,
+.winner-right div,
+.winner-right li,
+.winner-right strong,
+.winner-right em {
+  /* Only correct those that are still dark — let gold/white values pass through */
+  color: inherit;
+}
+
+/* --- Section-green (watchlist) and section-workflow ---
+   Both already set white/gold text in their own rules.
+   Defensive reset ensures nothing breaks under these dark parents. */
+.section-green *,
+.section-workflow * {
+  color: inherit;
+}
+
+/* Restore the specific overrides that should be gold/cream, not white */
+.section-green .eyebrow-on-dark,
+.section-green .section-title-on-dark { color: inherit; }
+
+.section-green .watch-card .contact-chip-value,
+.section-workflow .workflow-callout-text { color: inherit; }
+
+/* --- Signal meter and contact chip: ensure no bleed on any dark parent --- */
+.winner-right .signal-meter,
+.section-green .signal-meter,
+.section-workflow .signal-meter {
+  background: rgba(201, 160, 90, 0.06);
+  border-color: rgba(201, 160, 90, 0.22);
+  border-left-color: var(--gold);
+}
+.winner-right .signal-meter-label,
+.section-green .signal-meter-label,
+.section-workflow .signal-meter-label { color: var(--gold); }
+
+.winner-right .signal-meter-text,
+.section-green .signal-meter-text,
+.section-workflow .signal-meter-text { color: var(--white); }
+
+/* --- Map button on dark contexts --- */
+.winner-right .map-btn-on-dark,
+.section-green .map-btn-on-dark { color: var(--white); }
+
+/* --- Mobile: no dark text bleed at 390px --- */
+@media (max-width: 700px) {
+  .winner-right .approval-gate-text  { color: rgba(244, 234, 210, 0.92); }
+  .winner-right .approval-gate-text strong { color: var(--gold); }
+}
