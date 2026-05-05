@@ -1748,7 +1748,7 @@ html, body { overflow-x: hidden; }
    appended to each property card.
    ============================================================ */
 .contact-chip {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
   margin-top: 14px;
   padding: 11px 14px;
   background:
@@ -2662,6 +2662,103 @@ html { scroll-padding-top: 64px; }
 }
 .contact-chip.contact-chip-on-dark[data-contact="not-outreach-ready"] .contact-chip-label { color: rgba(232, 220, 196, 0.65); }
 .contact-chip.contact-chip-on-dark[data-contact="not-outreach-ready"] .contact-chip-value { color: rgba(232, 220, 196, 0.85); font-weight: 600; }
+
+
+/* ============================================================
+   Contact chip additions — Issue 1/2/3/4/5 pass
+   New slugs, agent info line, phone lookup button
+   ============================================================ */
+
+/* Agent info line (listed properties) */
+.contact-chip-agent {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1px;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.contact-chip.contact-chip-on-dark .contact-chip-agent {
+  color: rgba(232, 220, 196, 0.7);
+}
+
+/* Phone lookup button */
+.phone-lookup-btn {
+  margin-top: 8px;
+  padding: 5px 12px;
+  background: transparent;
+  border: 1px solid var(--green-3);
+  border-radius: var(--r-sm);
+  color: var(--green);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.phone-lookup-btn:hover:not(:disabled) {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+.phone-lookup-btn--queued,
+.phone-lookup-btn:disabled {
+  cursor: default;
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  background: rgba(201, 160, 90, 0.08);
+  opacity: 0.9;
+  white-space: normal;
+  font-size: 10.5px;
+  letter-spacing: 0.2px;
+}
+/* Dark context */
+.contact-chip.contact-chip-on-dark .phone-lookup-btn {
+  border-color: rgba(201, 160, 90, 0.55);
+  color: var(--gold-soft);
+}
+.contact-chip.contact-chip-on-dark .phone-lookup-btn:hover:not(:disabled) {
+  background: rgba(201, 160, 90, 0.22);
+  border-color: var(--gold);
+  color: var(--gold-soft);
+}
+.contact-chip.contact-chip-on-dark .phone-lookup-btn--queued,
+.contact-chip.contact-chip-on-dark .phone-lookup-btn:disabled {
+  color: var(--gold-soft);
+  background: rgba(201, 160, 90, 0.12);
+  border-color: rgba(201, 160, 90, 0.4);
+}
+
+/* -- New slug: email-phone-lookup-queued (3251 — owner intro ready) -- */
+.contact-chip[data-contact="email-phone-lookup-queued"] {
+  background: linear-gradient(180deg, #F3FBF4 0%, #EBF5EC 100%);
+  border-left-color: var(--green);
+}
+.contact-chip[data-contact="email-phone-lookup-queued"] .contact-chip-label { color: var(--green-3); }
+.contact-chip[data-contact="email-phone-lookup-queued"] .contact-chip-value { color: var(--green); font-weight: 700; }
+
+.contact-chip.contact-chip-on-dark[data-contact="email-phone-lookup-queued"] {
+  background: rgba(63, 92, 70, 0.35);
+  border-left-color: #7EC68A;
+}
+.contact-chip.contact-chip-on-dark[data-contact="email-phone-lookup-queued"] .contact-chip-label { color: #A8D5B0; }
+.contact-chip.contact-chip-on-dark[data-contact="email-phone-lookup-queued"] .contact-chip-value { color: #D4F0DA; font-weight: 700; }
+
+/* -- New slug: owner-confirmed-mailing-phone-lookup-required (4319 — mailing pull) -- */
+.contact-chip[data-contact="owner-confirmed-mailing-phone-lookup-required"] {
+  background: linear-gradient(180deg, #FDF8EE 0%, var(--cream-2) 100%);
+  border-left-color: var(--gold);
+}
+.contact-chip[data-contact="owner-confirmed-mailing-phone-lookup-required"] .contact-chip-label { color: var(--muted); }
+.contact-chip[data-contact="owner-confirmed-mailing-phone-lookup-required"] .contact-chip-value { color: var(--gold-deep); font-weight: 700; }
+
+.contact-chip.contact-chip-on-dark[data-contact="owner-confirmed-mailing-phone-lookup-required"] {
+  background: rgba(201, 160, 90, 0.18);
+  border-left-color: var(--gold);
+}
+.contact-chip.contact-chip-on-dark[data-contact="owner-confirmed-mailing-phone-lookup-required"] .contact-chip-label { color: var(--gold); }
+.contact-chip.contact-chip-on-dark[data-contact="owner-confirmed-mailing-phone-lookup-required"] .contact-chip-value { color: var(--gold-soft); font-weight: 700; }
 
 
 /* ============================================================
