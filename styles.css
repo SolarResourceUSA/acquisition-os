@@ -2959,3 +2959,292 @@ html { scroll-padding-top: 64px; }
     margin-top: 20px;
   }
 }
+
+/* ============================================================
+   MOBILE-FIRST PASS v7 — Phone-primary UX
+   Jeremy views on phone. Premium intelligence briefing feel.
+   ============================================================ */
+
+/* ---- HERO: don't swallow the full screen on mobile ---- */
+@media (max-width: 700px) {
+  .hero,
+  .hero-content { min-height: 68vh; }
+  .hero-content { padding: 24px 20px 28px !important; }
+  .hero-title { font-size: clamp(36px, 10vw, 52px) !important; margin-bottom: 16px; }
+  .hero-middle { padding-top: 20px; }
+  .hero-bottom { padding-top: 12px; }
+  .hero-positioning { font-size: 14.5px; line-height: 1.5; }
+}
+
+/* ---- MANAGED WORKFLOW: compact system note, not a giant banner ---- */
+#managed-workflow { padding: 44px 0 36px; }
+@media (max-width: 700px) {
+  #managed-workflow { padding: 28px 0 22px; }
+  .workflow-header { margin-bottom: 18px; text-align: left; max-width: 100%; }
+  .workflow-headline { font-size: clamp(18px, 5.5vw, 26px) !important; margin-bottom: 10px; }
+  .workflow-subline { font-size: 13px !important; line-height: 1.55; }
+  .workflow-tiles { gap: 10px; }
+  .workflow-tile { padding: 14px 14px 12px; }
+  .workflow-tile-number { margin-bottom: 8px; }
+  .workflow-tile-title { font-size: 15px; margin-bottom: 6px; }
+  .workflow-tile-body { font-size: 12.5px; line-height: 1.55; }
+  .workflow-callout { margin-top: 14px; padding: 10px 14px; }
+  .workflow-callout-text { font-size: 12.5px; }
+}
+
+/* ---- PRIVATE MARKET SIGNAL: tighter top section ---- */
+#private-market-signal { padding: 52px 0 36px; }
+@media (max-width: 700px) {
+  #private-market-signal { padding: 30px 0 22px; }
+  .pms-header { margin-bottom: 18px; }
+  .pms-headline { font-size: clamp(22px, 6.5vw, 32px) !important; }
+  .pms-positioning { font-size: 14px; }
+  .pms-badge { font-size: 10px; padding: 5px 12px; margin-bottom: 14px; }
+  .section-pms { padding: 30px 0 22px !important; }
+}
+
+/* PMS facts: 2x2 grid on mobile */
+@media (max-width: 540px) {
+  .pms-facts { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+  .pms-fact { padding: 12px 12px 12px 14px; }
+  .pms-fact-value { font-size: 14px; }
+  .pms-fact-label { font-size: 10px; letter-spacing: 2px; }
+}
+
+/* ---- STICKY NAV: scrollable pill row on narrow screens ---- */
+@media (max-width: 600px) {
+  .sticky-nav-inner { height: 44px; padding: 0 8px; gap: 0; }
+  .sticky-nav-brand { display: none; }
+  .sticky-nav-links {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 2px;
+    align-items: center;
+  }
+  .sticky-nav-links::-webkit-scrollbar { display: none; }
+  .sticky-nav-link {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 11px;
+    padding: 5px 10px;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* ---- KPI STRIP: compact 2-column on narrow mobile ---- */
+@media (max-width: 540px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+  .kpi { padding: 6px 10px; }
+  .kpi-value { font-size: clamp(22px, 6vw, 28px) !important; }
+  .kpi-label { font-size: 10.5px; }
+}
+
+/* ---- PIPELINE CARDS: single column on mobile ---- */
+@media (max-width: 700px) {
+  .pipeline-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* Pipeline card summary/detail structure */
+.pipe-card-summary .pipe-summary-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.pipe-city {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 10px;
+  letter-spacing: 0.1px;
+}
+.pipe-card-map-row { margin-bottom: 10px; }
+@media (max-width: 700px) {
+  .pipe-card-map-row .map-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 11.5px;
+  }
+}
+
+.pipe-key-signal-brief,
+.pipe-system-action-brief {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--charcoal-2);
+  margin-top: 6px;
+}
+.pipe-key-signal-brief::before {
+  content: "Signal";
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.pipe-system-action-brief::before {
+  content: "System action";
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* Expand/collapse button for pipeline cards */
+.pipe-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  background: var(--cream-2);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pipe-expand-btn:hover { background: var(--cream-3); color: var(--charcoal); }
+
+.pipe-expand-icon {
+  font-size: 12px;
+  display: inline-block;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pipe-expand-btn[aria-expanded="true"] .pipe-expand-icon {
+  transform: scaleY(-1);
+}
+
+.pipe-card-details {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline-2);
+  animation: pipe-details-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes pipe-details-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.pipe-card-details[hidden] { display: none !important; }
+
+/* ---- WINNER CARD: mobile collapsible secondary details ---- */
+.winner-secondary-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 12px;
+  padding: 7px 14px;
+  background: rgba(201, 160, 90, 0.12);
+  border: 1px solid rgba(201, 160, 90, 0.28);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.winner-secondary-toggle:hover { background: rgba(201, 160, 90, 0.22); color: var(--white); }
+.winner-secondary-icon {
+  display: inline-block;
+  font-size: 12px;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.winner-secondary-toggle[aria-expanded="true"] .winner-secondary-icon { transform: scaleY(-1); }
+
+.winner-secondary-details {
+  animation: pipe-details-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.winner-secondary-details[hidden] { display: none !important; }
+
+@media (max-width: 700px) {
+  .winner-address { font-size: clamp(28px, 8vw, 40px) !important; }
+  .winner-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 16px 0; }
+  .winner-badges { gap: 6px; }
+  .winner-badge { font-size: 9.5px; padding: 5px 10px; }
+  .winner-actions { flex-direction: column; gap: 8px; }
+  .winner-actions .map-btn,
+  .winner-actions [data-open-drawer] {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 16px;
+  }
+  .winner-left { padding: 28px 22px !important; }
+  .winner-right { padding: 24px 22px !important; }
+}
+
+/* ---- SECONDARY WINNERS: single column on small mobile ---- */
+@media (max-width: 540px) {
+  .secondary-grid { grid-template-columns: 1fr; gap: 10px; }
+  .sec-card { padding: 20px 18px 18px; }
+}
+
+/* ---- CHARTS: smaller heights on mobile ---- */
+@media (max-width: 700px) {
+  .chart-grid { gap: 14px; }
+  .chart-card { padding: 18px 16px !important; }
+  .chart-title { font-size: 16px !important; }
+  .chart-sub { font-size: 12px; margin-bottom: 12px; }
+  .chart-canvas-wrap { height: 185px !important; }
+  .chart-card-wide .chart-canvas-wrap { height: 215px !important; }
+  .chart-insight { font-size: 13px; padding: 10px 14px; margin-top: 12px; }
+}
+
+/* ---- WATCHLIST: single column on mobile ---- */
+@media (max-width: 700px) {
+  .watchlist-grid { grid-template-columns: 1fr; gap: 14px; }
+  .watch-card { padding: 22px 20px; }
+}
+
+/* ---- ACTION QUEUE: single column on mobile ---- */
+@media (max-width: 700px) {
+  .action-queue { grid-template-columns: 1fr !important; gap: 10px; }
+  .act-card { padding: 14px 16px; gap: 12px; }
+  .act-detail { font-size: 13px; }
+}
+
+/* ---- PUBLIC RECORD: single column on mobile ---- */
+@media (max-width: 700px) {
+  .pr-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- DRAWER: full-screen on mobile ---- */
+@media (max-width: 700px) {
+  .drawer-panel { width: 100vw !important; padding: 52px 18px 28px !important; }
+  .drawer-letter { font-size: 14px; line-height: 1.7; padding: 18px 18px; }
+}
+
+/* ---- GENERAL SECTION PADDING: tighter on mobile ---- */
+@media (max-width: 700px) {
+  .section { padding: 40px 0 !important; }
+  .section-tight { padding: 28px 0 !important; }
+  .section-sub { font-size: 14px; margin-bottom: 18px; }
+}
+
+/* ---- MAP BUTTON: thumb-friendly minimum height ---- */
+@media (max-width: 700px) {
+  .map-btn { min-height: 38px; }
+}
+
+/* ---- FOOTER: stack on mobile ---- */
+@media (max-width: 600px) {
+  .footer-grid { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .footer-meta { flex-wrap: wrap; }
+}
