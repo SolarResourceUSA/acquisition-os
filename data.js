@@ -544,7 +544,7 @@ const MANAGED_WORKFLOW = {
 
 const WHY_THIS_MATTERS = {
   bullets: [
-    "Your agent already sees MLS / listed homes.",
+    "MLS covers active listed homes.",
     "Acquisition OS focuses on the private-market layer.",
     "It filters weak listed deals instead of forcing them into the report.",
     "It finds long-held owner targets that don't surface on standard buyer searches.",
