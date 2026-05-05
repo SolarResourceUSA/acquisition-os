@@ -41,7 +41,7 @@ const PROPS = {
       status: "confirmed",
     },
     contact: {
-      path: "Direct mail",
+      path: "Email / phone lookup queued",
       confidence: "Confirmed",
     },
   },
@@ -61,7 +61,7 @@ const PROPS = {
       status: "mailing_pull_required",
     },
     contact: {
-      path: "Owner record pull required",
+      path: "Owner confirmed · mailing / phone lookup required",
       confidence: "Not contact-ready",
     },
   },
@@ -102,6 +102,10 @@ const PROPS = {
     },
     contact: {
       path: "Listed agent",
+      agentName: "Jeffrey Klaus",
+      agentBrokerage: "Blue Sky Realty",
+      agentMLS: "SR24251570",
+      agentPhone: "Phone pull queued",
       confidence: "Confirmed",
     },
   },
@@ -142,6 +146,8 @@ const PROPS = {
     },
     contact: {
       path: "Listed agent",
+      agentMLS: "41130149",
+      agentNote: "Agent name not confirmed · MLS 41130149 · Phone pull queued",
       confidence: "Confirmed",
     },
   },
