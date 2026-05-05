@@ -157,7 +157,7 @@
     if (tilesEl && mw.tiles) {
       mw.tiles.forEach(t => {
         const tile = document.createElement("div");
-        tile.className = "workflow-tile reveal";
+        tile.className = "workflow-tile";
         tile.innerHTML = `
           <div class="workflow-tile-number">${escapeHtml(t.number)}</div>
           <div class="workflow-tile-title">${escapeHtml(t.title)}</div>
@@ -168,7 +168,7 @@
       // Callout bar beneath the tiles — explicit approval-gate statement
       if (mw.callout) {
         const callout = document.createElement("div");
-        callout.className = "workflow-callout reveal";
+        callout.className = "workflow-callout";
         callout.innerHTML = `
           <span class="workflow-callout-dot" aria-hidden="true"></span>
           <span class="workflow-callout-text">${escapeHtml(mw.callout)}</span>
@@ -508,9 +508,6 @@
     const targets = [
       ".pms-header",
       ".pms-fact",
-      ".workflow-header",
-      ".workflow-tile",
-      ".workflow-callout",
       ".winner-card-wrap",
       ".sec-card",
       ".pipe-card",
