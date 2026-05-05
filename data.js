@@ -160,7 +160,7 @@ const TOP_HIERARCHY = [
     rank: "01",
     label: "Best Overall Signal",
     propKey: "3251",
-    summary: "26-year trust ownership in gated Blackhawk; same-street comps document a real ARV lane. Letter drafted, awaiting approval.",
+    summary: "26-year trust ownership in gated Blackhawk; same-street comps document a real ARV lane. Email intro drafted, awaiting approval.",
     accent: "primary",
   },
   {
@@ -218,7 +218,7 @@ const MULTI_WINNER = {
   winningCategories: [
     "Best Overall Opportunity",
     "Best Off-Market Outreach Target",
-    "Best Direct-Owner Letter Candidate",
+    "Best Direct-Owner Outreach Candidate",
     "Best Premium Repositioning Candidate",
   ],
   oneLine: "26-year trust ownership in gated Blackhawk, sitting on a documented same-street renovated comp lane.",
@@ -251,7 +251,7 @@ const MULTI_WINNER = {
   systemReadiness: [
     "Owner/trustee profile confirmed (Hegenbart Family Trust)",
     "Mailing appears to match situs (owners reside at property)",
-    "Draft email-first letter prepared and held for approval",
+    "Draft email-first outreach prepared and held for approval",
     "CCC permit detail pending human-access / formal Records Request path if lead advances",
   ],
   whatControlsTheDeal: [
@@ -280,8 +280,8 @@ const TOP_TARGET = {
   systemStatus:
     "Profile and ownership confirmed. Official Contra Costa County permit detail pending human-access step at the CCC ePermits Center, or a formal CCC Records Request submission.",
   nextSystemAction:
-    "Hold draft outreach letter for approval. Refresh Blackhawk Meadow comp lane. Pursue CCC permit detail through human-access or formal Records Request if the lead advances.",
-  approvalGate: "Outreach letter prepared and held until Jeremy approves. Nothing goes out without sign-off.",
+    "Hold draft outreach email for approval. Refresh Blackhawk Meadow comp lane. Pursue CCC permit detail through human-access or formal Records Request if the lead advances.",
+  approvalGate: "Email intro prepared and held until Jeremy approves. Nothing goes out without sign-off.",
 };
 
 const DRAFT_LETTER = {
@@ -348,7 +348,7 @@ const PIPELINE = [
       "26-year trust ownership; same-street comp lane (3421 Blackhawk Meadow Dr ~$655/sf, 3312 Blackhawk Meadow Dr ~$722/sf).",
     profile: "1985 · 3,473 sq ft · 0.22 ac · 3 bd / 4 ba · APN ~220-210-029",
     systemAction:
-      "Hold letter for approval. Refresh comp lane. Pursue CCC permit detail if lead advances.",
+      "Hold outreach email for approval. Refresh comp lane. Pursue CCC permit detail if lead advances.",
   },
   {
     rank: "2",
@@ -505,7 +505,7 @@ const WATCHLIST = [
 const SYSTEM_ACTION_QUEUE = [
   {
     title: "Approval Gate · 3251 Blackhawk Meadow Dr",
-    body: "Draft owner-introduction letter prepared and held. This is the only outreach-ready candidate this cycle — owner confirmed, mailing confirmed. Nothing is sent without Jeremy's sign-off. This is the one step that requires Jeremy.",
+    body: "Draft owner-introduction email prepared and held. This is the only outreach-ready candidate this cycle — owner confirmed, mailing confirmed. Nothing is sent without Jeremy's sign-off. This is the one step that requires Jeremy.",
     status: "Awaiting approval",
   },
   {
@@ -564,7 +564,7 @@ const SIGNAL_SUMMARY = [
   },
   {
     label: "System Status",
-    value: "Owner confirmed · Letter held for approval",
+    value: "Owner confirmed · Email held for approval",
     accent: "ready",
   },
 ];
@@ -589,7 +589,7 @@ const MANAGED_WORKFLOW = {
     {
       number: "03",
       title: "Jeremy approves only",
-      body: "Jeremy does not need to research, monitor, or chase leads. He only steps in at approval gates — when a top target is ready and a letter is waiting for his sign-off.",
+      body: "Jeremy does not need to research, monitor, or chase leads. He only steps in at approval gates — when a top target is ready and an email is waiting for his sign-off.",
     },
   ],
   callout: "The system prepares the outreach and follow-up queue automatically. Jeremy only approves before anything is sent.",
